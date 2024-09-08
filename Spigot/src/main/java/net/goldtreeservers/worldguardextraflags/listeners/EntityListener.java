@@ -9,10 +9,11 @@ import com.sk89q.worldguard.session.SessionManager;
 import net.goldtreeservers.worldguardextraflags.flags.helpers.ForcedStateFlag;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityToggleGlideEvent;
 import org.bukkit.event.world.PortalCreateEvent;
 
@@ -25,82 +26,83 @@ import net.goldtreeservers.worldguardextraflags.WorldGuardExtraFlagsPlugin;
 import net.goldtreeservers.worldguardextraflags.flags.Flags;
 
 @RequiredArgsConstructor
-public class EntityListener implements Listener
-{
-	private final WorldGuardPlugin worldGuardPlugin;
-	private final RegionContainer regionContainer;
-	private final SessionManager sessionManager;
+public class EntityListener implements Listener {
+    private final WorldGuardPlugin worldGuardPlugin;
+    private final RegionContainer regionContainer;
+    private final SessionManager sessionManager;
 
-	@EventHandler(ignoreCancelled = true)
-	public void onPortalCreateEvent(PortalCreateEvent event)
-	{
-		LocalPlayer localPlayer;
-		if (event.getEntity() instanceof Player player)
-		{
-			localPlayer = this.worldGuardPlugin.wrapPlayer(player);
-			if (this.sessionManager.hasBypass(localPlayer, localPlayer.getWorld()))
-			{
-				return;
-			}
-		}
-		else
-		{
-			localPlayer = null;
-		}
+    @EventHandler(ignoreCancelled = true)
+    public void onPortalCreateEvent(PortalCreateEvent event) {
+        LocalPlayer localPlayer;
+        if (event.getEntity() instanceof Player player) {
+            localPlayer = this.worldGuardPlugin.wrapPlayer(player);
+            if (this.sessionManager.hasBypass(localPlayer, localPlayer.getWorld())) {
+                return;
+            }
+        } else {
+            localPlayer = null;
+        }
 
-		for (BlockState block : event.getBlocks())
-		{
-			if (this.regionContainer.createQuery().queryState(BukkitAdapter.adapt(block.getLocation()), localPlayer, Flags.NETHER_PORTALS) == State.DENY)
-			{
-				event.setCancelled(true);
-				break;
-			}
-		}
-	}
+        for (BlockState block : event.getBlocks()) {
+            if (this.regionContainer.createQuery().queryState(BukkitAdapter.adapt(block.getLocation()), localPlayer, Flags.NETHER_PORTALS) == State.DENY) {
+                event.setCancelled(true);
+                break;
+            }
+        }
+    }
 
-	@EventHandler(ignoreCancelled = true)
-	public void onEntityToggleGlideEvent(EntityToggleGlideEvent event)
-	{
-		Entity entity = event.getEntity();
-		if (entity instanceof Player player)
-		{
-			LocalPlayer localPlayer = this.worldGuardPlugin.wrapPlayer(player);
-			if (this.sessionManager.hasBypass(localPlayer, localPlayer.getWorld()))
-			{
-				return;
-			}
+    @EventHandler(ignoreCancelled = true)
+    public void onEntityToggleGlideEvent(EntityToggleGlideEvent event) {
+        Entity entity = event.getEntity();
+        if (entity instanceof Player player) {
+            LocalPlayer localPlayer = this.worldGuardPlugin.wrapPlayer(player);
+            if (this.sessionManager.hasBypass(localPlayer, localPlayer.getWorld())) {
+                return;
+            }
 
-			ForcedStateFlag.ForcedState state = this.regionContainer.createQuery().queryValue(localPlayer.getLocation(), localPlayer, Flags.GLIDE);
-			switch(state)
-			{
-				case ALLOW:
-					break;
-				case DENY:
-				{
-					if (!event.isGliding())
-					{
-						return;
-					}
+            ForcedStateFlag.ForcedState state = this.regionContainer.createQuery().queryValue(localPlayer.getLocation(), localPlayer, Flags.GLIDE);
+            switch (state) {
+                case ALLOW:
+                    break;
+                case DENY: {
+                    if (!event.isGliding()) {
+                        return;
+                    }
 
-					event.setCancelled(true);
+                    event.setCancelled(true);
 
-					//Prevent the player from being allowed to glide by spamming space
-					player.teleport(player.getLocation());
+                    //Prevent the player from being allowed to glide by spamming space
+                    player.teleport(player.getLocation());
 
-					break;
-				}
-				case FORCE:
-				{
-					if (event.isGliding())
-					{
-						return;
-					}
+                    break;
+                }
+                case FORCE: {
+                    if (event.isGliding()) {
+                        return;
+                    }
 
-					event.setCancelled(true);
+                    event.setCancelled(true);
 
-					break;
-				}
-			}
-		}
-	}
+                    break;
+                }
+            }
+        }
+    }
+
+    @EventHandler(ignoreCancelled = true)
+    public void onEntityDamage(EntityDamageByEntityEvent event) {
+        LocalPlayer localPlayer;
+        if (event.getDamager() instanceof Player player) {
+            localPlayer = this.worldGuardPlugin.wrapPlayer(player);
+            if (this.sessionManager.hasBypass(localPlayer, localPlayer.getWorld())) {
+                return;
+            }
+            if(event.getEntity().getType() != EntityType.PLAYER) {
+                State state = this.regionContainer.createQuery().queryState((localPlayer.getLocation()), localPlayer, Flags.PLAYER_DAMAGE_MOBS);
+                if (state == State.DENY) {
+                    event.setCancelled(true);
+                }
+            }
+        }
+    }
 }

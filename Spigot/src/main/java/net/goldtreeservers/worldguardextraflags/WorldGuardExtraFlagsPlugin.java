@@ -74,6 +74,7 @@ public class WorldGuardExtraFlagsPlugin extends JavaPlugin
 			flagRegistry.register(Flags.CHAT_SUFFIX);
 			flagRegistry.register(Flags.BLOCKED_EFFECTS);
 			flagRegistry.register(Flags.GODMODE);
+			flagRegistry.register(Flags.PLAYER_DAMAGE_MOBS);
 			flagRegistry.register(Flags.RESPAWN_LOCATION);
 			flagRegistry.register(Flags.WORLDEDIT);
 			flagRegistry.register(Flags.GIVE_EFFECTS);
@@ -123,6 +124,7 @@ public class WorldGuardExtraFlagsPlugin extends JavaPlugin
 		this.sessionManager.registerHandler(FlyFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(GlideFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(GodmodeFlagHandler.FACTORY(), null);
+		this.sessionManager.registerHandler(PlayerDamageMobsFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(PlaySoundsFlagHandler.FACTORY(plugin), null);
 		this.sessionManager.registerHandler(BlockedEffectsFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(GiveEffectsFlagHandler.FACTORY(), null);

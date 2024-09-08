@@ -1,0 +1,13 @@
+net/goldtreeservers/worldguardextraflags/protocollib/ProtocolLibHelper.class
+net/goldtreeservers/worldguardextraflags/listeners/WorldListener.class
+net/goldtreeservers/worldguardextraflags/protocollib/RemoveEffectPacketListener.class
+net/goldtreeservers/worldguardextraflags/WorldGuardExtraFlagsPlugin.class
+net/goldtreeservers/worldguardextraflags/listeners/EntityListener$1.class
+net/goldtreeservers/worldguardextraflags/listeners/WorldEditListener.class
+net/goldtreeservers/worldguardextraflags/we/handlers/WorldEditFlagHandler.class
+net/goldtreeservers/worldguardextraflags/listeners/PlayerListener$1.class
+net/goldtreeservers/worldguardextraflags/listeners/PlayerListener$2.class
+net/goldtreeservers/worldguardextraflags/listeners/EntityListener.class
+net/goldtreeservers/worldguardextraflags/listeners/PlayerListener.class
+net/goldtreeservers/worldguardextraflags/listeners/BlockListener.class
+net/goldtreeservers/worldguardextraflags/listeners/EntityPotionEffectEventListener.class

@@ -1,0 +1,10 @@
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/WorldGuardExtraFlagsPlugin.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/BlockListener.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/EntityListener.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/EntityPotionEffectEventListener.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/PlayerListener.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/WorldEditListener.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/WorldListener.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/protocollib/ProtocolLibHelper.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/protocollib/RemoveEffectPacketListener.java
+/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/we/handlers/WorldEditFlagHandler.java

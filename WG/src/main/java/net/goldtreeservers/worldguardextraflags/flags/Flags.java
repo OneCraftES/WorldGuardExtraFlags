@@ -39,6 +39,7 @@ public final class Flags
 	public final static SetFlag<PotionEffectType> BLOCKED_EFFECTS = new SetFlag("blocked-effects", new PotionEffectTypeFlag(null));
 	
 	public final static StateFlag GODMODE = new StateFlag("godmode", false);
+	public final static StateFlag PLAYER_DAMAGE_MOBS = new StateFlag("damage-mobs", false);
 	
 	public final static LocationFlag RESPAWN_LOCATION = new LocationFlag("respawn-location");
 	
