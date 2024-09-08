@@ -22,7 +22,6 @@
 /home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/GlideFlagHandler.java
 /home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/GodmodeFlagHandler.java
 /home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/PlaySoundsFlagHandler.java
-/home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/PlayerDamageMobsFlagHandler.java
 /home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/TeleportOnEntryFlagHandler.java
 /home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/TeleportOnExitFlagHandler.java
 /home/vascoribeiro/Vasco/Minecraft/WorldGuardExtraFlags/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/WalkSpeedFlagHandler.java

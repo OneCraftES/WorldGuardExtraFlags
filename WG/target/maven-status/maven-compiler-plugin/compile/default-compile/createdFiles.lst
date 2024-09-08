@@ -13,7 +13,6 @@ net/goldtreeservers/worldguardextraflags/wg/handlers/CommandOnEntryFlagHandler$F
 net/goldtreeservers/worldguardextraflags/wg/WorldGuardUtils.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/CommandOnExitFlagHandler$Factory.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/GodmodeFlagHandler.class
-net/goldtreeservers/worldguardextraflags/wg/handlers/PlayerDamageMobsFlagHandler.class
 net/goldtreeservers/worldguardextraflags/flags/helpers/BlockMaterialFlag.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/GiveEffectsFlagHandler$Factory.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/ConsoleCommandOnExitFlagHandler.class
@@ -40,7 +39,6 @@ net/goldtreeservers/worldguardextraflags/flags/data/SoundData.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/BlockedEffectsFlagHandler$Factory.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/FlySpeedFlagHandler.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/FlySpeedFlagHandler$Factory.class
-net/goldtreeservers/worldguardextraflags/wg/handlers/PlayerDamageMobsFlagHandler$Factory.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/TeleportOnExitFlagHandler.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/GlideFlagHandler$Factory.class
 net/goldtreeservers/worldguardextraflags/wg/handlers/PlaySoundsFlagHandler.class

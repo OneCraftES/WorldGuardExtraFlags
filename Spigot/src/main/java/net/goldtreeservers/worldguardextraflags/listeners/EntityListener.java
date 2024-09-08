@@ -4,6 +4,7 @@ import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldguard.LocalPlayer;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import com.sk89q.worldguard.protection.flags.StateFlag;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 import com.sk89q.worldguard.session.SessionManager;
 import net.goldtreeservers.worldguardextraflags.flags.helpers.ForcedStateFlag;
@@ -91,16 +92,17 @@ public class EntityListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onEntityDamage(EntityDamageByEntityEvent event) {
-        LocalPlayer localPlayer;
         if (event.getDamager() instanceof Player player) {
-            localPlayer = this.worldGuardPlugin.wrapPlayer(player);
-            if (this.sessionManager.hasBypass(localPlayer, localPlayer.getWorld())) {
-                return;
-            }
             if(event.getEntity().getType() != EntityType.PLAYER) {
-                State state = this.regionContainer.createQuery().queryState((localPlayer.getLocation()), localPlayer, Flags.PLAYER_DAMAGE_MOBS);
-                if (state == State.DENY) {
-                    event.setCancelled(true);
+
+                LocalPlayer localPlayer = this.worldGuardPlugin.wrapPlayer(player);
+                ApplicableRegionSet regions = this.regionContainer.createQuery().getApplicableRegions(localPlayer.getLocation());
+
+                State CanDamageMobs = regions.queryValue(localPlayer, Flags.PLAYER_DAMAGE_MOBS);
+                if (CanDamageMobs != null) {
+                    if (CanDamageMobs == State.DENY) {
+                        event.setCancelled(true);
+                    }
                 }
             }
         }

@@ -118,13 +118,11 @@ public class WorldGuardExtraFlagsPlugin extends JavaPlugin
 
 		this.sessionManager.registerHandler(TeleportOnEntryFlagHandler.FACTORY(plugin), null);
 		this.sessionManager.registerHandler(TeleportOnExitFlagHandler.FACTORY(plugin), null);
-
 		this.sessionManager.registerHandler(WalkSpeedFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(FlySpeedFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(FlyFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(GlideFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(GodmodeFlagHandler.FACTORY(), null);
-		this.sessionManager.registerHandler(PlayerDamageMobsFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(PlaySoundsFlagHandler.FACTORY(plugin), null);
 		this.sessionManager.registerHandler(BlockedEffectsFlagHandler.FACTORY(), null);
 		this.sessionManager.registerHandler(GiveEffectsFlagHandler.FACTORY(), null);
